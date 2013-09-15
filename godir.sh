@@ -50,13 +50,21 @@ mkdir $workspace/src -p
 cd $workspace
 
 if [ "$initGit" == 1 ]; then
-	echo "git init"
+	#echo "git init"
 	git init
-	echo "init finished"
-	echo "remote name:"
-	echo $gitRemote
+	#echo "init finished"
+	#echo "remote name:"
+	#echo $gitRemote
 
 	if [ "$gitRemote" != "" ]; then
 		git remote add origin https://$gitRemote/$workspace.git
 	fi
-fi	
+fi
+
+#echo $GOPATH
+exportStr="export GOPATH="$PWD":\$GOPATH"
+#echo $exportStr
+echo $exportStr >> ~/.bashrc 
+#echo $GOPATH
+
+exit 0
